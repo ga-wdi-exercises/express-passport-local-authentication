@@ -28,6 +28,7 @@ require('./config/passport')(passport);
 
 app.use(function (req, res, next) {
   global.currentUser = req.user;
+  res.locals.currentUser = req.user;
   next();
 });
 
