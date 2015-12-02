@@ -3,7 +3,7 @@ var app          = express();
 var mongoose     = require('mongoose');
 var passport     = require('passport');
 var flash        = require('connect-flash');
-var ejsLayouts   = require("express-ejs-layouts");
+var hbs   = require("hbs");
 var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
@@ -15,8 +15,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser()); 
 
-app.set('view engine', 'ejs');
-app.use(ejsLayouts);
+app.set('view engine', 'hbs');
 app.set("views","./views");
 app.use(express.static(__dirname + '/public'));
 
