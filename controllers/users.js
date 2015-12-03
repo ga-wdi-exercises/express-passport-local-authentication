@@ -36,10 +36,13 @@ function postLogin(request, response) {
 
 // GET /logout
 function getLogout(request, response) {
+  request.logout()
+  response.redirect("/");
 }
 
 // Restricted page
 function secret(request, response){
+  response.render("secret")
 }
 
 module.exports = {
