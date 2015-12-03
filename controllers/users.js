@@ -2,18 +2,36 @@ var passport = require("passport")
 
 // GET /signup
 function getSignup(request, response) {
+  response.render('signup', {
+    message: request.flash('signupMessage')
+  })
 }
 
 // POST /signup
 function postSignup(request, response) {
+  var signupStrategy = passport.authenticate('local-signup', {
+    successRedirect: '/',
+    failureRedirect: '/signup',
+    failureFlash: true
+  });
+  return signupStrategy(request, response)
 }
 
 // GET /login
-function getLogin(request, response) { 
+function getLogin(request, response) {
+  return response.render("login", {
+    message: request.flash('loginMessage')
+  })
 }
 
-// POST /login 
+// POST /login
 function postLogin(request, response) {
+  var loginStrategy = passport.authenticate('local-login',{
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  })
+  return loginStrategy(request, response);
 }
 
 // GET /logout

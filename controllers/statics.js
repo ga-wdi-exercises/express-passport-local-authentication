@@ -1,6 +1,6 @@
 // GET /
-function home(req, res) {  
-  res.render('index.ejs');
+function home(req, res) {
+  res.render('index');
 }
 
 module.exports = {
