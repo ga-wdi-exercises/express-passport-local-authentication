@@ -1,5 +1,7 @@
+var TwitterStrategy = require('passport-twitter').Strategy;
 var LocalStrategy   = require('passport-local').Strategy;
 var User            = require('../models/user');
+var env             = require('../env');
 
 module.exports = function(passport) {
   passport.serializeUser(function(user, done) {
@@ -11,6 +13,17 @@ module.exports = function(passport) {
       callback(err, user);
     });
   });
+
+  passport.use(new TwitterStrategy({
+    consumerKey: env.consumerKey,
+    consumerSecret: env.consumerSecret,
+    callbackUrl: env.callbackUrl
+  }, function(aToken, aTokenSecret, aProfile, done){
+    token = aToken;
+    tokenSecret = aTokenSecret;
+    profile = aProfile;
+    done(null, profile);
+  }));
 
   passport.use('local-signup', new LocalStrategy({
     usernameField : 'email',
