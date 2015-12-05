@@ -32,4 +32,7 @@ router.route('/secret')
 router.route('/auth/twitter')
   .get(passport.authenticate('twitter'), usersController.twitter);
 
+router.route('/auth/twitter/callback')
+  .get(passport.authenticate('twitter'), usersController.twitterCallback);
+
 module.exports = router;

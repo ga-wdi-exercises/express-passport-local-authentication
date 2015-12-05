@@ -41,8 +41,13 @@ function secret(request, response){
   response.render("secret.hbs");
 }
 
-function twitter(request, response){
+function twitter(request, response){}
 
+function twitterCallback(request, response){
+  passport.authenticate('twitter', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  });
 }
 
 module.exports = {
@@ -52,5 +57,6 @@ module.exports = {
   postSignup: postSignup,
   getLogout: getLogout,
   secret: secret,
-  twitter: twitter
+  twitter: twitter,
+  twitterCallback: twitterCallback
 };
