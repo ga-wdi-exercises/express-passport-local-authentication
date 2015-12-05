@@ -35,15 +35,4 @@ app.use(function (req, res, next) {
 var routes = require('./config/routes');
 app.use(routes);
 
-app.get('/auth/twitter', passport.authenticate('twitter'));
-
-    // handle the callback after twitter has authenticated the user
-app.get('/auth/twitter/callback',
-  passport.authenticate('twitter', {
-      successRedirect : '/',
-      failureRedirect : '/'
-  }
-));
-
-
 app.listen(3000);
