@@ -29,10 +29,10 @@ router.route('/logout')
 router.route('/secret')
    .get(authenticatedUser, usersController.secret);
 
-router.route('/auth/twitter')
-  .get(passport.authenticate('twitter'), usersController.twitter);
-
-router.route('/auth/twitter/callback')
-  .get(passport.authenticate('twitter'), usersController.twitterCallback);
+// router.route('/auth/twitter')
+//   .get(usersController.twitter);
+//
+// router.route('/auth/twitter/callback')
+//   .get(usersController.twitterCallback);
 
 module.exports = router;

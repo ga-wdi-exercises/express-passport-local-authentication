@@ -41,14 +41,16 @@ function secret(request, response){
   response.render("secret.hbs");
 }
 
-function twitter(request, response){}
-
-function twitterCallback(request, response){
-  passport.authenticate('twitter', {
-    successRedirect: '/',
-    failureRedirect: '/login'
-  });
-}
+// function twitter(request, response){
+//   passport.authenticate('twitter');
+// }
+//
+// function twitterCallback(request, response){
+//   passport.authenticate('twitter', {
+//     successRedirect: '/',
+//     failureRedirect: '/login'
+//   });
+// }
 
 module.exports = {
   getLogin: getLogin,
@@ -57,6 +59,6 @@ module.exports = {
   postSignup: postSignup,
   getLogout: getLogout,
   secret: secret,
-  twitter: twitter,
-  twitterCallback: twitterCallback
+  // twitter: twitter,
+  // twitterCallback: twitterCallback
 };
