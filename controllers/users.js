@@ -41,11 +41,16 @@ function secret(request, response){
   response.render("secret.hbs");
 }
 
+function twitter(request, response){
+
+}
+
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret
+  secret: secret,
+  twitter: twitter
 };

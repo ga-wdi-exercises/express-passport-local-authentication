@@ -1,4 +1,5 @@
 var express = require('express');
+var passport = require('passport');
 var router = express.Router();
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
@@ -22,10 +23,13 @@ router.route('/login')
   .get(usersController.getLogin)
   .post(usersController.postLogin);
 
-router.route("/logout")
+router.route('/logout')
   .get(usersController.getLogout);
 
-router.route("/secret")
+router.route('/secret')
    .get(authenticatedUser, usersController.secret);
+
+router.route('/auth/twitter')
+  .get(passport.authenticate('twitter'), usersController.twitter);
 
 module.exports = router;
