@@ -1,1 +1,6 @@
 Welcome {{currentUser.local.email}}
+
+{{#if currentUser.displayName}}
+  <h2>User Info</h2>
+  {{currentUser}}
+{{/if}}
